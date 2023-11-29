@@ -1,13 +1,14 @@
 pipeline {
     agent any
-    tools{
+    tools {
         maven "MAVEN3"
         jdk "OracleJDK8"
     }
 
     environment {
-        SNAP_REPO = 'vprofile-snapshot'
+        SNAP_REPO =  'vprofile-snapshot'
         NEXUS_USER = 'admin'
+        NEXUS_PASS = 'Abcd1234'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vpro-maven-central'
         NEXUSIP = '172.31.93.213'
@@ -15,7 +16,7 @@ pipeline {
         NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'       
     }
-    
+
     stages {
         stage ('Build'){
             steps {
@@ -23,4 +24,4 @@ pipeline {
             }
         }
     }
-}
+} 
